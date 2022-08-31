@@ -31,10 +31,13 @@ function pwSpec(){
 }
 //Validate Results
 function pwValid(){
-  if (passLower || passUpper || passNumer || passSpec){
+  if ((passLower) || (passUpper) || (passNumer) || (passSpec)){
     var passValid = true;
+    window.alert ("Your password is valid!");
   } else{
     passValid = false;
+    window.alert ("Your password is not valid. You must choose at least one.");
+    pwChars();
   }
 }
 //Determine Characters
@@ -49,11 +52,6 @@ function pwChars(){
 function generatePassword(){
   pwChars();
   pwValid();
-  while (!passValid){
-    window.alert("You must accept at least one character type for your password.");
-    pwChars();
-    pwValid();
-  }
   window.alert ("Your password is valid!");
   window.alert ("Computing...");
   window.alert ("Beep");
