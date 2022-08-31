@@ -14,20 +14,24 @@ function pwLength(){
 //Determine Lowercase
 function pwLower(){
   var passLower = window.confirm("Use lowercase letters?");
+  return passLower;
 }
 //Determine Uppercase
 function pwUpper(){
   var passUpper = window.confirm("Use uppercase letters?");
+  return passUpper;
 }
 
 //Determine numeric
 function pwNumer(){
   var passNumer = window.confirm("Use numbers?");
+  return passNumer;
 }
 
 //Determine Special Characters
 function pwSpec(){
   var passSpec = window.confirm("Use special characters?");
+  return passSpec;
 }
 //Validate Results
 function pwValid(){
@@ -37,12 +41,11 @@ function pwValid(){
   } else{
     passValid = false;
     window.alert ("Your password is not valid. You must choose at least one.");
-    pwChars();
   }
+  return passValid;
 }
 //Determine Characters
-function pwChars(){
-  pwLength();
+function pwChars(){ 
   pwLower();
   pwUpper();
   pwNumer();
@@ -50,9 +53,9 @@ function pwChars(){
 }
 //password generator
 function generatePassword(){
+  pwLength();
   pwChars();
   pwValid();
-  window.alert ("Your password is valid!");
   window.alert ("Computing...");
   window.alert ("Beep");
   window.alert ("Boop");
