@@ -10,52 +10,33 @@ function pwLength(){
     passLength = window.prompt("Enter desired length of password between 8 and 128 characters");
   }
   window.alert ("Your password will be " + passLength + " characters.");
+  return passLength;
 }
 //Determine Lowercase
-function pwLower(){
+function pwChars(){
   var passLower = window.confirm("Use lowercase letters?");
-  return passLower;
-}
-//Determine Uppercase
-function pwUpper(){
   var passUpper = window.confirm("Use uppercase letters?");
-  return passUpper;
-}
-
-//Determine numeric
-function pwNumer(){
   var passNumer = window.confirm("Use numbers?");
-  return passNumer;
-}
-
-//Determine Special Characters
-function pwSpec(){
   var passSpec = window.confirm("Use special characters?");
-  return passSpec;
-}
-//Validate Results
-function pwValid(){
-  if ((passLower) || (passUpper) || (passNumer) || (passSpec)){
+
+  if (passLower|| passUpper || passNumer || passSpec){
     var passValid = true;
     window.alert ("Your password is valid!");
   } else{
     passValid = false;
-    window.alert ("Your password is not valid. You must choose at least one.");
+    window.alert ("Your password is not valid. You must use at least one.");
+    pwChars();
   }
-  return passValid;
+
+
+  return;
 }
 //Determine Characters
-function pwChars(){ 
-  pwLower();
-  pwUpper();
-  pwNumer();
-  pwSpec();
-}
+
 //password generator
 function generatePassword(){
-  pwLength();
+  var passLength = pwLength();
   pwChars();
-  pwValid();
   window.alert ("Computing...");
   window.alert ("Beep");
   window.alert ("Boop");
