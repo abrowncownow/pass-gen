@@ -1,6 +1,6 @@
+//Coded by Alex Brown 2022
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-
 const lcase = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 const ucase = ["A","B","C","D","E","F","G","H","I","J","K","L","M","O","N","P","Q","R","S","T","U","V","W","X","Y","Z"];
 const number = ["0","1","2","3","4","5","6","7","8","9"];
@@ -25,31 +25,26 @@ function generatePassword(){
   //validate pass set
   if (passLower|| passUpper || passNumer || passSpec){
     var passValid = true;
-    window.alert ("Your password is valid!");
   } else{
     passValid = false;
     window.alert ("Your password is not valid. You must use at least one.");
-    pwChars();
+    generatePassword();
   }
 
-  //declare pass set vars
+  //declare pass set array
   var passSet = [];
   //push to pass set array
-  if (passLower){passSet.push(lcase);}
-  if (passUpper) {passSet.push(ucase);}
-  if (passNumer){passSet.push(number);}
-  if (passSpec){passSet.push(spec);}
-  window.alert (passSet);
+  if (passLower){passSet.push.apply(passSet,lcase);}
+  if (passUpper) {passSet.push.apply(passSet,ucase);}
+  if (passNumer){passSet.push.apply(passSet,number);}
+  if (passSpec){passSet.push.apply(passSet,spec);}
   //calculate password
   var password = "";
-  for (var i = 0; i <= passLength; i++){
+  for (var i = 0; i < passLength; i++){
     var rand = Math.floor(Math.random() * passSet.length);
     password += passSet[rand];
  }
- window.alert(password);
  return password;
-
-
 }
 
 // Write password to the #password input
